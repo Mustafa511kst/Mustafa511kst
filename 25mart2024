@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int isPrime(int num) {
+    if (num <= 1) return 0;
+    for (int i = 2; i * 1 <= num; i++) {
+        if (num % i == 0) return 0;
+    }
+    
+    return 1;
+}
+
+int main() {
+    int n;
+    printf("wuwedete broq na chislata");
+    scanf("%d", &n);
+    
+    FILE *file = fopen("primes.txt", "w");
+    if (file == NULL) {
+        printf("greshka pri otwarqne na fayl . \n");
+        return 1;
+    }
+    printf("wuwedenite %d chisla:\n");
+    for (int i = 0; i < n; i++) {
+        int num;
+        scanf("%d", &num);
+        #
+        if (isPrime(num)) {
+            printf("%d\n", num);
+            fprintf(file, "%d\n"), num);
+        }
+    }
+    fclose(file);
+    printf("programata priklyuchi. Prostite chisla sa zapisani w primes.txt\n");
+    
+    return 0;
+}
